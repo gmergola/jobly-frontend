@@ -1,0 +1,11 @@
+.Hidden {
+  display: none;
+}
+
+.login-signup-btn {
+  width: 500px;
+}
+
+.signup-btn {
+  margin-top: 20px;
+}
