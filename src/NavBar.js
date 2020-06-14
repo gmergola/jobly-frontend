@@ -21,28 +21,26 @@ function NavBar({ currentUser, setCurrentUser }) {
 
   //authenticates which navbar to render based on token state
   if (currentUser.username) {
-    if (currentUser.username) {
-      return (
-        <nav>
-          <ul>
-            <li><NavLink exact to="/"><b>Home</b></NavLink></li>
-            <li><NavLink exact to="/companies"><b>Companies</b></NavLink></li>
-            <li><NavLink exact to="/jobs"><b>Jobs</b></NavLink></li>
-            <li><NavLink exact to="/profile"><b>Profile</b></NavLink></li>
-            <li><NavLink exact to="/" onClick={handleLogout} ><b>LogOut</b></NavLink></li>
-          </ul>
-        </nav>
-      )
-    } else {
-      return (
-        <nav>
-          <ul>
-            <li><NavLink exact to="/"><b>Home</b></NavLink></li>
-            <li><NavLink exact to="/login"><b>Log In</b></NavLink></li>
-          </ul>
-        </nav>
-      )
-    }
+    return (
+      <nav>
+        <ul>
+          <li><NavLink exact to="/"><b>Home</b></NavLink></li>
+          <li><NavLink exact to="/companies"><b>Companies</b></NavLink></li>
+          <li><NavLink exact to="/jobs"><b>Jobs</b></NavLink></li>
+          <li><NavLink exact to="/profile"><b>Profile</b></NavLink></li>
+          <li><NavLink exact to="/" onClick={handleLogout} ><b>LogOut</b></NavLink></li>
+        </ul>
+      </nav>
+    )
+  } else {
+    return (
+      <nav>
+        <ul>
+          <li><NavLink exact to="/"><b>Home</b></NavLink></li>
+          <li><NavLink exact to="/login"><b>Log In</b></NavLink></li>
+        </ul>
+      </nav>
+    )
   }
 
 }
