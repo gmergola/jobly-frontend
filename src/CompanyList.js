@@ -38,7 +38,7 @@ function CompanyList() {
     );
   }else{
     return (
-      <div>
+      <div className="companies-container">
         <SearchBar whichSearch='companies' searchCompanies={companyListSearch}/>
         <div >
           {companies.map(({ name, logo_url, description, handle }) =>

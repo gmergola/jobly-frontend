@@ -2,21 +2,14 @@
 nav {
   overflow: hidden;
   background-color: lightgray;
-  display: flex;
-  border-bottom: 5px solid lightgray;
+  text-align: left;
 }
 
 li {
   display: inline;
-  margin: 20px;
+  margin: 17px;
 }
 
-@media only screen and (max-width: 600px) {
-  li {
-    margin: 8px;
-  }
-
-}
 a {
   text-decoration: none;
 
@@ -26,3 +19,13 @@ a.active {
   color: black;
 }
 
+a:hover {
+  opacity: 0.5;
+}
+
+
+@media only screen and (max-width: 600px) {
+  li {
+    margin: 5px;
+  }
+}

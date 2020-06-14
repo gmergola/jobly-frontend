@@ -125,7 +125,7 @@ function LoginSignupForm() {
   }
 
   return (
-    <div>
+    <div className="Login-container">
       <div ><Alert errors={errorMessage} /></div>
       {!window.localStorage.getItem("token") ?
       <div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import JoblyApi from "./HelperApi";
 import SearchBar from "./SearchBar";
 import JobCard from "./JobCard";
+import './JobList.css';
 
 /**JobList: Component that renders list of JobCards */
 function JobList() {
@@ -39,7 +40,7 @@ function JobList() {
   }else{
 
     return (
-      <div>
+      <div className="jobs-container">
         <SearchBar whichSearch='jobs' searchJobs={jobListSearch} />
         <div>
           {jobs.map(({ title, salary, equity, id }) =>
