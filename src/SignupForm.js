@@ -21,6 +21,7 @@ function SignupForm() {
   const [formData, setFormData] = useState({ ...initialData });
   const [signingUp, setsigningUp] = useState(false);
   const [errorMessage, setErrorMessage] = useState([]);
+  const [showLoading, setShowLoading] = useState(false);
   const { setToken } = useContext(TokenContext);
 
   useEffect(function registerOrLogin() {
@@ -55,6 +56,7 @@ function SignupForm() {
   function handleSubmitSignUp(evt) {
     evt.preventDefault();
     setsigningUp(true);
+    setShowLoading(true);
   }
 
   function handleChange(evt) {
@@ -66,6 +68,7 @@ function SignupForm() {
   }
 
   return (
+    showLoading ? <div><b>Thanks for making an account... Please wait while we load all companies</b></div> :
     <div className="Login-container">
       <div ><Alert errors={errorMessage} /></div>
       <br />

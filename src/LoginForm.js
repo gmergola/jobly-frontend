@@ -17,6 +17,7 @@ function LoginForm() {
   const [formData, setFormData] = useState({ ...initialData });
   const [logginIn, setlogginIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState([]);
+  const [showLoading, setShowLoading] = useState(false);
   const { setToken } = useContext(TokenContext);
 
   useEffect(function letsLogin() {
@@ -53,8 +54,7 @@ function LoginForm() {
   function handleSubmitLogin(evt) {
     evt.preventDefault();
     setlogginIn(true);
-    console.log("login", localStorage);
-
+    setShowLoading(true);
   }
 
   function handleChange(evt) {
@@ -66,6 +66,7 @@ function LoginForm() {
   }
 
   return (
+    showLoading ? <div><b>Thanks for logging in... Please wait while we load all companies</b></div> :
     <div className="Login-container">
       <div ><Alert errors={errorMessage} /></div>
       <br />
