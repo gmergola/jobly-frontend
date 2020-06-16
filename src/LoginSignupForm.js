@@ -19,8 +19,8 @@ function LoginSignupForm() {
     last_name: '',
     email: ''
   }
-  const [hideLogin, setHideLogin] = useState('Hidden');
-  const [hideSignup, setHideSignup] = useState('Hidden');
+
+  const [formToShow, setFormToShow] = useState('');
   const [formData, setFormData] = useState({ ...initialData });
   const [logginIn, setlogginIn] = useState(false);
   const [signingUp, setsigningUp] = useState(false);
@@ -45,7 +45,7 @@ function LoginSignupForm() {
         history.push("/companies");
       }
       catch (err) {
-        setErrorMessage(messages=>([
+        setErrorMessage(messages => ([
           ...messages, ...err
         ]));
         console.error(err);
@@ -65,7 +65,7 @@ function LoginSignupForm() {
         setToken(response);
         history.push("/companies");
       } catch (err) {
-        setErrorMessage(messages=>([
+        setErrorMessage(messages => ([
           ...messages, ...err
         ]));
         console.error(err);
@@ -114,30 +114,21 @@ function LoginSignupForm() {
     }))
   }
 
-  //toggles our register/login forms to view the appropriate form
-  function handleRegisterButton() {
-    setHideLogin("Hidden");
-    setHideSignup("");
-  }
-  function handleLoginButton() {
-    setHideLogin("");
-    setHideSignup("Hidden");
-  }
-
   return (
     <div className="Login-container">
       <div ><Alert errors={errorMessage} /></div>
       {!window.localStorage.getItem("token") ?
-      <div>
-      <button className="login-signup-btn btn btn-primary" onClick={handleLoginButton}>Login</button>
+        <div>
+          <button className="login-signup-btn btn btn-primary" onClick={() => setFormToShow('login')}>Login</button>
+          <br />
+          <button className="login-signup-btn btn btn-secondary" onClick={() => setFormToShow('signup')}>Register</button>
+        </div>
+        :
+        <img src={blueLines} alt="lines" />}
       <br />
-      <button className="login-signup-btn btn btn-secondary" onClick={handleRegisterButton}>Register</button>
-      </div>
-      :
-      <img src={blueLines} alt="lines"/>}
       <br />
-      <br />
-      <form className={`"loginForm" "form-group" ${hideLogin}`} onSubmit={handleSubmitLogin}>
+      {formToShow === 'login' ?
+      <form className="loginForm form-group" onSubmit={handleSubmitLogin}>
         <div className="input-group">
           <div className="input-group-prepend">
             <span className="input-group-text">Username</span>
@@ -147,16 +138,17 @@ function LoginSignupForm() {
         <br />
         <div className="input-group">
           <div className="input-group-prepend">
-          <span className="input-group-text">Password</span>
+            <span className="input-group-text">Password</span>
           </div>
           <input className="form-control" onChange={handleChange} value={formData.password} name="password"></input>
         </div>
         <br />
         <button className="login-btn btn btn-primary" type="submit">Submit</button>
       </form>
+      : ""}
 
-
-      <form className={`"signUpForm" ${hideSignup}`} onSubmit={handleSubmitSignUp}>
+      {formToShow === 'signup' ?
+      <form className="signUpForm" onSubmit={handleSubmitSignUp}>
         <div className="input-group">
           <div className="input-group-prepend">
             <span className="input-group-text">First and last name</span>
@@ -190,9 +182,9 @@ function LoginSignupForm() {
         </div>
         <button className="signup-btn btn btn-secondary" type="submit">Submit</button>
       </form>
+      : ""}
     </div>
   )
-
 }
 
 export default LoginSignupForm;
