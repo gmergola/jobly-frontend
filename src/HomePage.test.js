@@ -1,20 +1,26 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import App from "./App";
+import HomePage from "./HomePage";
 import { MemoryRouter } from "react-router";
+import { TokenProvider } from "./testHelpers";
 
-it("renders without crashing", function() {
+
+it("renders without crashing", function () {
   render(
     <MemoryRouter>
-        <App />
+      <TokenProvider>
+        <HomePage />
+      </TokenProvider>
     </MemoryRouter>
   );
 });
 
-it("matches snapshot", function() {
+it("matches snapshot", function () {
   const { asFragment } = render(
     <MemoryRouter>
-      <App />
+      <TokenProvider>
+        <HomePage />
+      </TokenProvider>
     </MemoryRouter>
   );
   expect(asFragment()).toMatchSnapshot();

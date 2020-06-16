@@ -1,12 +1,13 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import App from "./App";
+import CompanyDetail from "./CompanyDetail";
 import { MemoryRouter } from "react-router";
+
 
 it("renders without crashing", function() {
   render(
     <MemoryRouter>
-        <App />
+        <CompanyDetail />
     </MemoryRouter>
   );
 });
@@ -14,7 +15,7 @@ it("renders without crashing", function() {
 it("matches snapshot", function() {
   const { asFragment } = render(
     <MemoryRouter>
-      <App />
+      <CompanyDetail />
     </MemoryRouter>
   );
   expect(asFragment()).toMatchSnapshot();
