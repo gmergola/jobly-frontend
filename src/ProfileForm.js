@@ -8,11 +8,11 @@ import './ProfileForm.css';
 function ProfileForm({ currentUser, setCurrentUser }) {
   const [errorMessage, setErrorMessage] = useState([]);
   const [formData, setFormData] = useState({
-    first_name: currentUser.first_name || "",
-    last_name: currentUser.last_name || "",
-    email: currentUser.email || "",
-    photo_url: currentUser.photo_url || "",
-    username: currentUser.username,
+    first_name: currentUser?.first_name || "",
+    last_name: currentUser?.last_name || "",
+    email: currentUser?.email || "",
+    photo_url: currentUser?.photo_url || "",
+    username: currentUser?.username,
     password: "",
   });
 
@@ -53,9 +53,9 @@ function ProfileForm({ currentUser, setCurrentUser }) {
   return (
     <div>
       <div>
-        <h1>{currentUser.username}</h1>
-        <p>User's name: {currentUser.first_name} {currentUser.last_name}</p>
-        {currentUser.photo_url ? <img src={currentUser.photo_url} alt="default" /> :
+        <h1>{currentUser?.username}</h1>
+        <p>User's name: {currentUser?.first_name} {currentUser?.last_name}</p>
+        {currentUser?.photo_url ? <img src={currentUser?.photo_url} alt="default" /> :
           <img src={defaultPhoto} alt="default" />}
       </div>
       <br />

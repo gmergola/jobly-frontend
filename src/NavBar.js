@@ -20,7 +20,7 @@ function NavBar({ currentUser, setCurrentUser }) {
   }
 
   //authenticates which navbar to render based on token state
-  if (currentUser.username) {
+  if (currentUser?.username) {
     return (
       <nav>
         <ul>

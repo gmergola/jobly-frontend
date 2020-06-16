@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Login-container"
+  >
+    <div />
+    <div>
+      <button
+        class="login-signup-btn btn btn-primary"
+      >
+        Login
+      </button>
+      <br />
+      <button
+        class="login-signup-btn btn btn-secondary"
+      >
+        Register
+      </button>
+    </div>
+    <br />
+    <br />
+    <form
+      class="\\"loginForm\\" \\"form-group\\" Hidden"
+    >
+      <div
+        class="input-group"
+      >
+        <div
+          class="input-group-prepend"
+        >
+          <span
+            class="input-group-text"
+          >
+            Username
+          </span>
+        </div>
+        <input
+          class="form-control"
+          name="username"
+          value=""
+        />
+      </div>
+      <br />
+      <div
+        class="input-group"
+      >
+        <div
+          class="input-group-prepend"
+        >
+          <span
+            class="input-group-text"
+          >
+            Password
+          </span>
+        </div>
+        <input
+          class="form-control"
+          name="password"
+          value=""
+        />
+      </div>
+      <br />
+      <button
+        class="login-btn btn btn-primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+    <form
+      class="\\"signUpForm\\" Hidden"
+    >
+      <div
+        class="input-group"
+      >
+        <div
+          class="input-group-prepend"
+        >
+          <span
+            class="input-group-text"
+          >
+            First and last name
+          </span>
+        </div>
+        <input
+          class="form-control"
+          name="first_name"
+          value=""
+        />
+        <br />
+        <input
+          class="form-control"
+          name="last_name"
+          value=""
+        />
+        <br />
+      </div>
+      <br />
+      <div
+        class="input-group"
+      >
+        <div
+          class="input-group-prepend"
+        >
+          <span
+            class="input-group-text"
+          >
+            Email
+          </span>
+        </div>
+        <input
+          class="form-control"
+          name="email"
+          value=""
+        />
+      </div>
+      <br />
+      <div
+        class="input-group"
+      >
+        <div
+          class="input-group-prepend"
+        >
+          <span
+            class="input-group-text"
+          >
+            Username
+          </span>
+        </div>
+        <input
+          class="form-control"
+          name="username"
+          value=""
+        />
+      </div>
+      <br />
+      <div
+        class="input-group"
+      >
+        <div
+          class="input-group-prepend"
+        >
+          <span
+            class="input-group-text"
+          >
+            Password
+          </span>
+        </div>
+        <input
+          class="form-control"
+          name="password"
+          value=""
+        />
+      </div>
+      <button
+        class="signup-btn btn btn-secondary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      <h1 />
+      <p>
+        User's name:  
+      </p>
+      <img
+        alt="default"
+        src="default-user-photo.png"
+      />
+    </div>
+    <br />
+    <div>
+      <br />
+      <h3>
+        Edit your profile information
+      </h3>
+      <div />
+      <form
+        class="form-group"
+      >
+        <div
+          class="input-group"
+        >
+          <div
+            class="input-group-prepend"
+          >
+            <span
+              class="input-group-text"
+            >
+              First Name 
+            </span>
+          </div>
+          <input
+            class="form-control"
+            name="first_name"
+            value=""
+          />
+        </div>
+        <br />
+        <div
+          class="input-group"
+        >
+          <div
+            class="input-group-prepend"
+          >
+            <span
+              class="input-group-text"
+            >
+              Last Name 
+            </span>
+          </div>
+          <input
+            class="form-control"
+            name="last_name"
+            value=""
+          />
+        </div>
+        <br />
+        <div
+          class="input-group"
+        >
+          <div
+            class="input-group-prepend"
+          >
+            <span
+              class="input-group-text"
+            >
+              Email 
+            </span>
+          </div>
+          <input
+            class="form-control"
+            name="email"
+            value=""
+          />
+        </div>
+        <br />
+        <div
+          class="input-group"
+        >
+          <div
+            class="input-group-prepend"
+          >
+            <span
+              class="input-group-text"
+            >
+              Re-Enter Password 
+            </span>
+          </div>
+          <input
+            class="form-control"
+            name="password"
+            value=""
+          />
+        </div>
+        <br />
+        <div
+          class="input-group"
+        >
+          <div
+            class="input-group-prepend"
+          >
+            <span
+              class="input-group-text"
+            >
+              Photo URL 
+            </span>
+          </div>
+          <input
+            class="form-control"
+            name="photo_url"
+            value=""
+          />
+        </div>
+        <br />
+        <button
+          class="ProfileForm-button btn btn-info"
+          type="submit"
+        >
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
