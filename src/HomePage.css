@@ -1,17 +1,24 @@
 .Home-container {
-  text-align: center;
-  background-image: url('./images/job-bg.png');
-  background-position: center;
+  background-position: top;
   height: 100vh;
 }
 
 .Home-title {
-  background-color: white;
-  opacity: 0.9;
+  float: left;
+  color: rgb(174, 178, 199);
 }
 
 .description {
-  margin-bottom: 40px;
-  background-color: white;
-  opacity: 0.9;
+  float: left;
+  margin-top: 3.5rem;
+  color: rgb(174, 178, 199);
+  font-size: 20px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .description {
+    margin-top: 1rem;
+    font-size: 15px;
+  }
 }
