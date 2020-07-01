@@ -6,6 +6,7 @@ import './ProfileForm.css';
 
 /**ProfileForm: Edits a user's information as long as the password is corrent */
 function ProfileForm({ currentUser, setCurrentUser }) {
+  const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState([]);
   const [formData, setFormData] = useState({
     first_name: currentUser?.first_name || "",
@@ -44,59 +45,64 @@ function ProfileForm({ currentUser, setCurrentUser }) {
       setErrorMessage(errors);
       return;
     }
-
     setFormData(f => ({ ...f, password: "" }));
     setErrorMessage([]);
     setCurrentUser(editedUser);
+    setSubmitted(true);
   }
 
+  if (!currentUser.first_name) {
+    return <h2>Loading...</h2>
+  }
   return (
-    <div>
+    <div className="Profile-container">
       <div>
-        <h1>{currentUser?.username}</h1>
+        <h1 className="Profile-username">{currentUser?.username}</h1>
         <p>User's name: {currentUser?.first_name} {currentUser?.last_name}</p>
         {currentUser?.photo_url ? <img src={currentUser?.photo_url} alt="default" /> :
-          <img src={defaultPhoto} alt="default" />}
+          <img className="Profile-photo" src={defaultPhoto} alt="default" />}
       </div>
       <br />
       <div>
-      <br />
-      <h3>Edit your profile information</h3>
-      <div ><Alert errors={errorMessage} /></div>
+        <br />
+        <h3>Edit your profile information</h3>
+        <h4><i>Please enter your password to edit successfully</i></h4>
+        <div ><Alert errors={errorMessage} /></div>
+        {submitted ? <h3><i>Profile Successfully edited!</i></h3> : null}
         <form className="form-group" onSubmit={handleSubmit}>
           <div className="input-group">
             <div className="input-group-prepend">
               <span className="input-group-text">First Name </span>
             </div>
-            <input className="form-control" onChange={handleChange} value={formData.first_name} name="first_name"></input>
+            <input className="Profile-input" onChange={handleChange} value={formData.first_name} name="first_name"></input>
           </div>
           <br />
           <div className="input-group">
             <div className="input-group-prepend">
               <span className="input-group-text">Last Name </span>
             </div>
-            <input className="form-control" onChange={handleChange} value={formData.last_name} name="last_name"></input>
+            <input className="Profile-input" onChange={handleChange} value={formData.last_name} name="last_name"></input>
           </div>
           <br />
           <div className="input-group">
             <div className="input-group-prepend">
               <span className="input-group-text">Email </span>
             </div>
-            <input className="form-control" onChange={handleChange} value={formData.email} name="email"></input>
+            <input className="Profile-input" onChange={handleChange} value={formData.email} name="email"></input>
           </div>
           <br />
           <div className="input-group">
             <div className="input-group-prepend">
               <span className="input-group-text">Re-Enter Password </span>
             </div>
-            <input className="form-control" onChange={handleChange} value={formData.password} name="password"></input>
+            <input className="Profile-input" onChange={handleChange} value={formData.password} name="password"></input>
           </div>
           <br />
           <div className="input-group">
             <div className="input-group-prepend">
               <span className="input-group-text">Photo URL </span>
             </div>
-            <input className="form-control" onChange={handleChange} value={formData.photo_url} name="photo_url"></input>
+            <input className="Profile-input" onChange={handleChange} value={formData.photo_url} name="photo_url"></input>
           </div>
           <br />
           <button className="ProfileForm-button btn btn-info" type="submit">Save</button>

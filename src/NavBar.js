@@ -9,8 +9,10 @@ function NavBar({ currentUser, setCurrentUser }) {
   const { setToken } = useContext(TokenContext);
   const history = useHistory();
 
-  // upon logout, clears localStorage, resets token state (context) and redirects
-  //back to homepage via history
+  /**handleLogout: clears localStorage
+   * resets token state (context)
+   * redirects back to homepage via history
+   */
   function handleLogout() {
     window.localStorage.clear();
     setToken("");
@@ -19,29 +21,21 @@ function NavBar({ currentUser, setCurrentUser }) {
     history.push('/');
   }
 
-  //authenticates which navbar to render based on token state
-  if (currentUser?.username) {
-    return (
-      <nav>
-        <ul>
-          <li><NavLink exact to="/"><b>Home</b></NavLink></li>
-          <li><NavLink exact to="/companies"><b>Companies</b></NavLink></li>
-          <li><NavLink exact to="/jobs"><b>Jobs</b></NavLink></li>
-          <li><NavLink exact to="/profile"><b>Profile</b></NavLink></li>
-          <li><NavLink exact to="/" onClick={handleLogout} ><b>LogOut</b></NavLink></li>
-        </ul>
-      </nav>
-    )
-  } else {
-    return (
-      <nav>
-        <ul>
-          <li><NavLink exact to="/"><b>Home</b></NavLink></li>
-          <li><NavLink exact to="/login"><b>Log In</b></NavLink></li>
-        </ul>
-      </nav>
-    )
-  }
+  // currentUser?.username ? "" : " disabled" authenticates which navbar to render based on token state
+  return (
+    <nav className="navbar navbar-expand">
+      <NavLink className="navbar-brand" exact to="/"><b>Jobly</b></NavLink>
+      <div>
+        <div className="navbar-nav">
+          <NavLink className={`nav-item nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/companies"><b>Companies</b></NavLink>
+          <NavLink className={`nav-item nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/jobs"><b>Jobs</b></NavLink>
+          <NavLink className={`nav-item nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/profile"><b>Profile</b></NavLink>
+          <NavLink className={`nav-item nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/logout" onClick={handleLogout} ><b>Log out</b></NavLink>
+          <NavLink className={`nav-item nav-link${currentUser?.username ? " disabled" : ""}`} exact to="/login"><b>Log In</b></NavLink>
+        </div>
+      </div>
+    </nav>
+  )
 
 }
 

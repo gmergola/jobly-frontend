@@ -42,7 +42,7 @@ function JobList() {
     return (
       <div className="jobs-container">
         <SearchBar whichSearch='jobs' searchJobs={jobListSearch} />
-        <div>
+        <div className="JobList-card">
           {jobs.map(({ title, salary, equity, id }) =>
             <JobCard
               key={id}

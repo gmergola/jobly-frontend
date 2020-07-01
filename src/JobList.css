@@ -1,4 +1,10 @@
 .jobs-container {
   margin-left: 2rem;
   margin-right: 3rem;
+  background-color: rgb(214, 229, 235);
+  border-radius: 50px;
+}
+
+.JobList-card {
+  margin-left: 2rem;
 }

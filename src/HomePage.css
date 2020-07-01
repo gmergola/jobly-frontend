@@ -1,11 +1,17 @@
 .Home-container {
   text-align: center;
+  background-image: url('./images/job-bg.png');
+  background-position: center;
+  height: 100vh;
 }
 
 .Home-title {
-  margin-top: 40px;
+  background-color: white;
+  opacity: 0.9;
 }
 
 .description {
   margin-bottom: 40px;
+  background-color: white;
+  opacity: 0.9;
 }

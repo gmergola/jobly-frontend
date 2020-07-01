@@ -40,7 +40,7 @@ function CompanyList() {
     return (
       <div className="companies-container">
         <SearchBar whichSearch='companies' searchCompanies={companyListSearch}/>
-        <div >
+        <div className="CompanyList-card">
           {companies.map(({ name, logo_url, description, handle }) =>
             <CompanyCard
               key={handle}

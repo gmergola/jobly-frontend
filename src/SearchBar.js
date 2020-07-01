@@ -58,7 +58,7 @@ function SearchBar({ searchCompanies, searchJobs, whichSearch }) {
         <br />
         <div className="input-group">
           <input
-          className="search-input form-control"
+          className="search-input"
           onChange={handleChange}
           name="search"
           placeholder={whichSearch === 'companies' ? "Search Companies" : "Search Jobs"}

@@ -1,4 +1,23 @@
+.Profile-container {
+  background-color: rgb(214, 229, 235);
+  border-radius: 50px;
+}
+
+.Profile-photo {
+  border-radius: 180%;
+}
+
 .ProfileForm-button {
   margin-top: 20px;
   width: 100px;
+  margin-bottom: 20px;
+}
+
+.Profile-input {
+  width: 500px;
+  border: none;
+}
+
+.input-group-text {
+  margin-left: 2rem;
 }

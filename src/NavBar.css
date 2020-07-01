@@ -1,18 +1,9 @@
-
-nav {
-  overflow: hidden;
-  background-color: lightgray;
-  text-align: left;
+.navbar {
+  border-radius: 50px;
 }
 
-li {
-  display: inline;
-  margin: 17px;
-}
-
-a {
-  text-decoration: none;
-
+.navbar-nav {
+  font-size: 15px;
 }
 
 a.active {
@@ -25,7 +16,9 @@ a:hover {
 
 
 @media only screen and (max-width: 600px) {
-  li {
-    margin: 5px;
+  .navbar-nav {
+    font-size: 10px;
   }
 }
+
+

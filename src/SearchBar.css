@@ -1,6 +1,11 @@
 .search-input {
-  margin-top: 3px;
-  margin-right: 0px;
+  width: 500px;
+  border: none;
+  border-radius: 30px;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  padding: 10px;
+  text-align: center;
 }
 
 .search-btn {
