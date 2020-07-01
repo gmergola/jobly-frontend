@@ -68,7 +68,7 @@ function SignupForm() {
   }
 
   return (
-    showLoading ? <div><b>Thanks for making an account... Please wait while we load all companies</b></div> :
+    showLoading ? <div className="loading-message" ><b>Thanks for making an account... Please wait while we load all companies</b></div> :
     <div className="Login-container">
       <div ><Alert errors={errorMessage} /></div>
       <br />
