@@ -1,8 +1,9 @@
-.card{
-  width: 700px;
+.card {
+  width: 500px;
   margin-bottom: 25px;
   margin-top: 25px;
 }
+
 
 @media only screen and (max-width: 600px) {
   .card{

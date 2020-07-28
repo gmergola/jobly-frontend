@@ -1,24 +1,37 @@
 .Home-container {
   background-position: top;
   height: 100vh;
+  padding: 50px;
 }
 
 .Home-title {
-  float: left;
-  color: rgb(174, 178, 199);
+  color: rgb(75, 86, 139);
+  opacity: 0.6;
 }
 
 .description {
-  float: left;
-  margin-top: 3.5rem;
-  color: rgb(174, 178, 199);
-  font-size: 20px;
+  margin-top: 20px;
+  color: rgb(75, 86, 139);
+  font-size: 40px;
+  opacity: 0.6;
+}
+
+.HomePage-j {
+  height: 300px;
+  width: 300px;
+  border-radius: 180%;
+  margin-top: 20px;
+  opacity: 0.7;
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .description {
-    margin-top: 1rem;
-    font-size: 15px;
+    font-size: 25px;
+  }
+
+  .HomePage-j {
+    height: 150px;
+    width: 150px;
   }
 }

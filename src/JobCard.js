@@ -6,11 +6,11 @@ import './JobCard.css';
  */
 function JobCard({ title, salary, equity }) {
   return (
-    <div className="JobCard-card card border-info mb-3" >
+    <div className="JobCard-card card border-warning mb-3" >
       <div>
         <br />
         <h2 className="card-header"><b>Title</b>: {title}</h2>
-        <div className="card-body text-info">
+        <div className="card-body text-warning">
           <h4 className="card-text"><b>Salary</b>: {salary}</h4>
           <h4 className="card-text"><b>Equity</b>: {equity}</h4>
         </div>

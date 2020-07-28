@@ -83,7 +83,7 @@ function LoginForm() {
           <div className="input-group-prepend">
             <span className="input-group-text">Password</span>
           </div>
-          <input className="form-control" onChange={handleChange} value={formData.password} name="password"></input>
+          <input type="password" className="form-control" onChange={handleChange} value={formData.password} name="password"></input>
         </div>
         <br />
         <button className="login-btn btn btn-primary" type="submit">Submit</button>

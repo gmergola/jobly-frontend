@@ -3,6 +3,7 @@ import JoblyApi from "./HelperApi";
 import SearchBar from "./SearchBar";
 import JobCard from "./JobCard";
 import './JobList.css';
+import j from './images/j.jpg';
 
 /**JobList: Component that renders list of JobCards */
 function JobList() {
@@ -42,6 +43,7 @@ function JobList() {
     return (
       <div className="jobs-container">
         <SearchBar whichSearch='jobs' searchJobs={jobListSearch} />
+        <img className="JobList-j" src={j} alt="j"/>
         <div className="JobList-card">
           {jobs.map(({ title, salary, equity, id }) =>
             <JobCard

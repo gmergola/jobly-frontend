@@ -21,3 +21,13 @@
 .input-group-text {
   margin-left: 2rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .Profile-input {
+    width: 65%;
+  }
+
+  .input-group-text {
+    margin-left: 0rem;
+  }
+}

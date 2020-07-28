@@ -103,7 +103,7 @@ function SignupForm() {
           <div className="input-group-prepend">
             <span className="input-group-text">Password</span>
           </div>
-          <input className="form-control" onChange={handleChange} value={formData.password} name="password"></input>
+          <input type="password" className="form-control" onChange={handleChange} value={formData.password} name="password"></input>
         </div>
         <button className="signup-btn btn btn-secondary" type="submit">Submit</button>
       </form>

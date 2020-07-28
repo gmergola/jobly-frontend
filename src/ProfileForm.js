@@ -59,7 +59,7 @@ function ProfileForm({ currentUser, setCurrentUser }) {
       <div>
         <h1 className="Profile-username">{currentUser?.username}</h1>
         <p>User's name: {currentUser?.first_name} {currentUser?.last_name}</p>
-        {currentUser?.photo_url ? <img src={currentUser?.photo_url} alt="default" /> :
+        {currentUser?.photo_url ? <img className="Profile-photo" src={currentUser?.photo_url} alt="default" /> :
           <img className="Profile-photo" src={defaultPhoto} alt="default" />}
       </div>
       <br />
@@ -93,9 +93,9 @@ function ProfileForm({ currentUser, setCurrentUser }) {
           <br />
           <div className="input-group">
             <div className="input-group-prepend">
-              <span className="input-group-text">Re-Enter Password </span>
+              <span className="input-group-text">Password </span>
             </div>
-            <input className="Profile-input" onChange={handleChange} value={formData.password} name="password"></input>
+            <input className="Profile-input" type="password" onChange={handleChange} value={formData.password} name="password"></input>
           </div>
           <br />
           <div className="input-group">

@@ -63,7 +63,7 @@ function SearchBar({ searchCompanies, searchJobs, whichSearch }) {
           name="search"
           placeholder={whichSearch === 'companies' ? "Search Companies" : "Search Jobs"}
           />
-          <button className="search-btn btn btn-success" type="submit">Search</button>
+          <button className="search-btn btn btn-warning" type="submit">Search</button>
         </div>
       </form>
     </div>

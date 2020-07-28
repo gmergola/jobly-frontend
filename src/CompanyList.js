@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import JoblyApi from "./HelperApi";
 import SearchBar from "./SearchBar";
 import CompanyCard from "./CompanyCard";
-import './CompanyList.css'
+import './CompanyList.css';
+import j from './images/j.jpg';
 
 /**CompanyList: Component that renders list of CompanyCards */
 function CompanyList() {
@@ -40,6 +41,7 @@ function CompanyList() {
     return (
       <div className="companies-container">
         <SearchBar whichSearch='companies' searchCompanies={companyListSearch}/>
+        <img className="CompanyList-j" src={j} alt="j"/>
         <div className="CompanyList-card">
           {companies.map(({ name, logo_url, description, handle }) =>
             <CompanyCard
