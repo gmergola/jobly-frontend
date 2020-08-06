@@ -5,8 +5,8 @@ function Alert({ errors }) {
 
   return (
     errors.map((err, i) => {
-      if (err === "Invalid Credentials") return <div>{err}</div>
-      return <div key={i}><b>{err.slice(9)}</b></div>
+      if (err === "Invalid Credentials") return <div className="alert alert-danger">{err}</div>
+      return <div key={i}><b>{err}</b></div>
     })
   );
 }

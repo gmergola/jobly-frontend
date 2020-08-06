@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import JoblyApi from "./HelperApi";
 import { useParams } from "react-router-dom";
 import JobCard from './JobCard';
+import './CompanyDetail.css';
 
 function CompanyDetail() {
   const [company, setCompany] = useState({});
@@ -12,7 +13,6 @@ function CompanyDetail() {
   // handle error if call went wrong
   // set isLoading state back to false
   useEffect(() => {
-    console.log('use effect working');
     async function getCompany() {
       try {
         let resp = await JoblyApi.getCompany(name);
@@ -35,16 +35,14 @@ function CompanyDetail() {
   } else {
     return (
       <div>
-        <h3>{company.name}</h3>
-        <p>{company.description}</p>
+        <h3 className="CompanyDetail-title">{company.name}</h3>
+        <div className="CompanyDetail-description"><b>{company.description}</b></div>
         <div>{company.jobs.map(job => (
-          <div>
             <JobCard
               key={job.id}
               title={job.title}
               salary={job.salary}
               equity={job.equity} />
-          </div>
         ))}</div>
       </div>
     );

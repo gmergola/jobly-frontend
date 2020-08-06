@@ -1,0 +1,12 @@
+.JobCard-card {
+  padding: 10px;
+}
+
+.JobCard-title {
+  color: rgb(75, 86, 139);
+}
+
+.JobCard-apply-btn {
+  width: 100px;
+  margin: 0 auto;
+}

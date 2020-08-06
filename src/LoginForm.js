@@ -66,7 +66,7 @@ function LoginForm() {
   }
 
   return (
-    showLoading ? <div className="loading-message"><b>Thanks for logging in... Please wait while we load all companies</b></div> :
+    showLoading && errorMessage.length === 0 ? <div className="loading-message"><b>Thanks for logging in... Please wait while we load all companies</b></div> :
     <div className="Login-container">
       <div ><Alert errors={errorMessage} /></div>
       <br />
