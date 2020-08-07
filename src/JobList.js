@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import JoblyApi from "./HelperApi";
 import SearchBar from "./SearchBar";
 import JobCard from "./JobCard";
+import LoadingSpinner from './LoadingSpinner';
 import './JobList.css';
 import j from './images/j.jpg';
 
@@ -30,33 +31,23 @@ function JobList() {
     setJobs(filteredJobs);
   }
 
-  //if jobs is a promise return loading
-  // else if it resolves to an array as expected render list of JobCards
-  if (isLoading) {
-    return (
-      <div>
-        Loading...
+  return (
+    isLoading ? <LoadingSpinner /> :
+    <div className="jobs-container">
+      <SearchBar whichSearch='jobs' searchJobs={jobListSearch} />
+      <img className="JobList-j" src={j} alt="j"/>
+      <div className="JobList-card">
+        {jobs.map(({ title, salary, equity, id }) =>
+          <JobCard
+            key={id}
+            title={title}
+            salary={salary}
+            equity={equity}
+          />)}
       </div>
-    )
-  }else{
 
-    return (
-      <div className="jobs-container">
-        <SearchBar whichSearch='jobs' searchJobs={jobListSearch} />
-        <img className="JobList-j" src={j} alt="j"/>
-        <div className="JobList-card">
-          {jobs.map(({ title, salary, equity, id }) =>
-            <JobCard
-              key={id}
-              title={title}
-              salary={salary}
-              equity={equity}
-            />)}
-        </div>
-
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
 

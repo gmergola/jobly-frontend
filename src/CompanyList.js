@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import JoblyApi from "./HelperApi";
 import SearchBar from "./SearchBar";
 import CompanyCard from "./CompanyCard";
+import LoadingSpinner from './LoadingSpinner';
 import './CompanyList.css';
 import j from './images/j.jpg';
 
@@ -30,32 +31,23 @@ function CompanyList() {
     setCompanies(filteredCompanies);
   }
 
-
-  if (isLoading) {
-    return (
-      <div>
-        Loading...
+  return (
+    isLoading ? <LoadingSpinner /> :
+    <div className="companies-container">
+      <SearchBar whichSearch='companies' searchCompanies={companyListSearch}/>
+      <img className="CompanyList-j" src={j} alt="j"/>
+      <div className="CompanyList-card">
+        {companies.map(({ name, logo_url, description, handle }) =>
+          <CompanyCard
+            key={handle}
+            handle={handle}
+            name={name}
+            logoUrl={logo_url}
+            description={description}
+          />)}
       </div>
-    );
-  }else{
-    return (
-      <div className="companies-container">
-        <SearchBar whichSearch='companies' searchCompanies={companyListSearch}/>
-        <img className="CompanyList-j" src={j} alt="j"/>
-        <div className="CompanyList-card">
-          {companies.map(({ name, logo_url, description, handle }) =>
-            <CompanyCard
-              key={handle}
-              handle={handle}
-              name={name}
-              logoUrl={logo_url}
-              description={description}
-            />)}
-        </div>
-
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default CompanyList;

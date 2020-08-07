@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import TokenContext from "./TokenContext";
 import Alert from './Alert';
 import "./login.css";
+import LoadingSpinner from './LoadingSpinner';
 
 /**SignupForm: Authenticates a user that has just registered.
  * Throws errors passed to the Alert compnent if errors arise
@@ -68,46 +69,50 @@ function SignupForm() {
   }
 
   return (
-    showLoading && errorMessage.length === 0 ? <div className="loading-message" ><b>Thanks for making an account... Please wait while we load all companies</b></div> :
-    <div className="Login-container">
-      {errorMessage.length > 0 && <div className="alert alert-danger"><Alert type="danger" message={errorMessage} /></div>}
-      <br />
-      <br />
-      <form className="signUpForm" onSubmit={handleSubmitSignUp}>
-        <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text">First and last name</span>
-          </div>
-          <input className="form-control" onChange={handleChange} value={formData.first_name} name="first_name"></input><br />
-          <input className="form-control" onChange={handleChange} value={formData.last_name} name="last_name"></input><br />
-        </div>
+    showLoading && errorMessage.length === 0 ?
+      <div className="loading-message" >
+        <b>Thanks for making an account... Please wait while we load all companies</b>
+        <LoadingSpinner />
+      </div> :
+      <div className="Login-container">
+        {errorMessage.length > 0 && <div ><Alert type="danger" message={errorMessage} /></div>}
         <br />
-
-        <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text">Email</span>
-          </div>
-          <input className="form-control" onChange={handleChange} value={formData.email} name="email"></input>
-        </div>
         <br />
-
-        <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text">Username</span>
+        <form className="signUpForm" onSubmit={handleSubmitSignUp}>
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <span className="input-group-text">First and last name</span>
+            </div>
+            <input className="form-control" onChange={handleChange} value={formData.first_name} name="first_name"></input><br />
+            <input className="form-control" onChange={handleChange} value={formData.last_name} name="last_name"></input><br />
           </div>
-          <input className="form-control" onChange={handleChange} value={formData.username} name="username"></input>
-        </div>
-        <br />
+          <br />
 
-        <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text">Password</span>
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <span className="input-group-text">Email</span>
+            </div>
+            <input className="form-control" onChange={handleChange} value={formData.email} name="email"></input>
           </div>
-          <input type="password" className="form-control" onChange={handleChange} value={formData.password} name="password"></input>
-        </div>
-        <button className="signup-btn btn btn-secondary" type="submit">Submit</button>
-      </form>
-    </div>
+          <br />
+
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <span className="input-group-text">Username</span>
+            </div>
+            <input className="form-control" onChange={handleChange} value={formData.username} name="username"></input>
+          </div>
+          <br />
+
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <span className="input-group-text">Password</span>
+            </div>
+            <input type="password" className="form-control" onChange={handleChange} value={formData.password} name="password"></input>
+          </div>
+          <button className="signup-btn btn btn-secondary" type="submit">Submit</button>
+        </form>
+      </div>
   );
 }
 

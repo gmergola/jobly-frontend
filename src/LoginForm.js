@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import TokenContext from "./TokenContext";
 import Alert from './Alert';
 import "./login.css";
+import LoadingSpinner from './LoadingSpinner';
 
 /**LoginForm: renders form to login.
  * Authenticates user or throws error passed to the Alert component */
@@ -66,29 +67,33 @@ function LoginForm() {
   }
 
   return (
-    showLoading && errorMessage.length === 0 ? <div className="loading-message"><b>Thanks for logging in... Please wait while we load all companies</b></div> :
-    <div className="Login-container">
-      <div ><Alert type="danger" message={errorMessage} /></div>
-      <br />
-      <br />
-      <form className="loginForm form-group" onSubmit={handleSubmitLogin}>
-        <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text">Username</span>
-          </div>
-          <input className="form-control" onChange={handleChange} value={formData.username} name="username"></input>
-        </div>
+    showLoading && errorMessage.length === 0 ?
+      <div className="loading-message">
+        <b>Thanks for logging in... Please wait while we load all companies</b>
+        <LoadingSpinner />
+      </div> :
+      <div className="Login-container">
+        <div ><Alert type="danger" message={errorMessage} /></div>
         <br />
-        <div className="input-group">
-          <div className="input-group-prepend">
-            <span className="input-group-text">Password</span>
-          </div>
-          <input type="password" className="form-control" onChange={handleChange} value={formData.password} name="password"></input>
-        </div>
         <br />
-        <button className="login-btn btn btn-primary" type="submit">Submit</button>
-      </form>
-    </div>
+        <form className="loginForm form-group" onSubmit={handleSubmitLogin}>
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <span className="input-group-text">Username</span>
+            </div>
+            <input className="form-control" onChange={handleChange} value={formData.username} name="username"></input>
+          </div>
+          <br />
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <span className="input-group-text">Password</span>
+            </div>
+            <input type="password" className="form-control" onChange={handleChange} value={formData.password} name="password"></input>
+          </div>
+          <br />
+          <button className="login-btn btn btn-primary" type="submit">Submit</button>
+        </form>
+      </div>
   )
 }
 

@@ -3,21 +3,22 @@ import defaultPhoto from './images/default-user-photo.png';
 import Alert from './Alert';
 import JoblyApi from "./HelperApi";
 import './ProfileForm.css';
+import LoadingSpinner from './LoadingSpinner';
 
 /**ProfileForm: Edits a user's information as long as the password is correct */
 function ProfileForm({ currentUser, setCurrentUser}) {
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState([]);
-  const [formData, setFormData] = useState({
+  const INITIAL_FORM_DATA = {
     first_name: currentUser?.first_name || "",
     last_name: currentUser?.last_name || "",
     email: currentUser?.email || "",
     photo_url: currentUser?.photo_url || "",
     username: currentUser?.username,
     password: "",
-  });
+  }
+  const [formData, setFormData] = useState({...INITIAL_FORM_DATA});
 
-  console.log(formData);
 
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -54,7 +55,7 @@ function ProfileForm({ currentUser, setCurrentUser}) {
   }
 
   return (
-    !currentUser.first_name ? <h2>Loading...</h2> :
+    !currentUser.first_name ? <LoadingSpinner /> :
     <div className="Profile-container">
       <div>
         <h1 className="Profile-username">{currentUser?.username}</h1>

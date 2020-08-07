@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import JoblyApi from "./HelperApi";
 import { useParams } from "react-router-dom";
 import JobCard from './JobCard';
+import LoadingSpinner from './LoadingSpinner';
 import './CompanyDetail.css';
 
 function CompanyDetail() {
@@ -27,26 +28,21 @@ function CompanyDetail() {
   }, [setCompany, name]);
 
 
-  // If isLoading state is false render jobcard, otherwise show loading...
-  if (isLoading) {
-
-    return (<div>"Loading..."</div>);
-
-  } else {
-    return (
-      <div>
-        <h3 className="CompanyDetail-title">{company.name}</h3>
-        <div className="CompanyDetail-description"><b>{company.description}</b></div>
-        <div>{company.jobs.map(job => (
-            <JobCard
-              key={job.id}
-              title={job.title}
-              salary={job.salary}
-              equity={job.equity} />
-        ))}</div>
-      </div>
-    );
-  }
+  // If isLoading state is false render jobcard, otherwise show loading spinner
+  return (
+    isLoading ? <LoadingSpinner /> :
+    <div>
+      <h3 className="CompanyDetail-title">{company.name}</h3>
+      <div className="CompanyDetail-description"><b>{company.description}</b></div>
+      <div>{company.jobs.map(job => (
+          <JobCard
+            key={job.id}
+            title={job.title}
+            salary={job.salary}
+            equity={job.equity} />
+      ))}</div>
+    </div>
+  );
 }
 
 export default CompanyDetail
