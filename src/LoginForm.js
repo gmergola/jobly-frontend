@@ -47,7 +47,7 @@ function LoginForm() {
       setFormData(initialData);
       setErrorMessage([]);
     }
-  }, [logginIn, formData, initialData, setToken, history])
+  }, [logginIn, formData, initialData, setToken, history]);
 
 
 
@@ -68,7 +68,7 @@ function LoginForm() {
   return (
     showLoading && errorMessage.length === 0 ? <div className="loading-message"><b>Thanks for logging in... Please wait while we load all companies</b></div> :
     <div className="Login-container">
-      <div ><Alert errors={errorMessage} /></div>
+      <div ><Alert type="danger" message={errorMessage} /></div>
       <br />
       <br />
       <form className="loginForm form-group" onSubmit={handleSubmitLogin}>

@@ -4,8 +4,8 @@ import Alert from './Alert';
 import JoblyApi from "./HelperApi";
 import './ProfileForm.css';
 
-/**ProfileForm: Edits a user's information as long as the password is corrent */
-function ProfileForm({ currentUser, setCurrentUser }) {
+/**ProfileForm: Edits a user's information as long as the password is correct */
+function ProfileForm({ currentUser, setCurrentUser}) {
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState([]);
   const [formData, setFormData] = useState({
@@ -16,6 +16,8 @@ function ProfileForm({ currentUser, setCurrentUser }) {
     username: currentUser?.username,
     password: "",
   });
+
+  console.log(formData);
 
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -51,10 +53,8 @@ function ProfileForm({ currentUser, setCurrentUser }) {
     setSubmitted(true);
   }
 
-  if (!currentUser.first_name) {
-    return <h2>Loading...</h2>
-  }
   return (
+    !currentUser.first_name ? <h2>Loading...</h2> :
     <div className="Profile-container">
       <div>
         <h1 className="Profile-username">{currentUser?.username}</h1>
@@ -67,8 +67,10 @@ function ProfileForm({ currentUser, setCurrentUser }) {
         <br />
         <h3>Edit your profile information</h3>
         <h4><i>Please enter your password to edit successfully</i></h4>
-        <div ><Alert errors={errorMessage} /></div>
-        {submitted ? <h3><i>Profile Successfully edited!</i></h3> : null}
+
+        <div ><Alert type="danger" message={errorMessage} /></div>
+        {submitted && <Alert type="success" message={['Profile Successfully updated']} />}
+
         <form className="form-group" onSubmit={handleSubmit}>
           <div className="input-group">
             <div className="input-group-prepend">

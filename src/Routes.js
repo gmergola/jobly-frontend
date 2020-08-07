@@ -5,6 +5,7 @@ import LoginSignupForm from "./LoginSignupForm";
 import NavBar from "./NavBar";
 import PrivateRoutes from "./PrivateRoutes";
 import TokenContext from "./TokenContext";
+import CurrentUserContext from "./CurrentUserContext";
 import JoblyApi from "./HelperApi";
 import './Routes.css';
 
@@ -34,19 +35,20 @@ function Routes() {
   return (
     <div className="container">
       <TokenContext.Provider value={{ token, setToken }}>
-        <NavBar setCurrentUser={setCurrentUser} currentUser={currentUser} />
+        <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
+        <NavBar />
         <Switch>
           <Route exact path="/">
             <Homepage />
           </Route>
           <Route exact path="/login">
-            <LoginSignupForm currentUser={currentUser}/>
+            <LoginSignupForm />
           </Route>
           {!!window.localStorage.getItem("token") &&
-            <PrivateRoutes
-              currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            <PrivateRoutes />}
           <Redirect to="/" />
         </Switch>
+        </CurrentUserContext.Provider>
       </TokenContext.Provider>
     </div>
   );

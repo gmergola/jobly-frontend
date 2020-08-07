@@ -1,13 +1,10 @@
 import React from 'react';
 
-/**Alert: shows errors when they occur in forms */
-function Alert({ errors }) {
+/**Alert: shows messages*/
+function Alert({ message, type }) {
 
   return (
-    errors.map((err, i) => {
-      if (err === "Invalid Credentials") return <div className="alert alert-danger">{err}</div>
-      return <div key={i}><b>{err}</b></div>
-    })
+    message.map((m, i) => <div key={i} className={`alert alert-${type}`}>{m}</div>)
   );
 }
 

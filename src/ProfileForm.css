@@ -6,6 +6,8 @@
 
 .Profile-photo {
   border-radius: 180%;
+  width: 300px;
+  height: 300px;
 }
 
 .ProfileForm-button {

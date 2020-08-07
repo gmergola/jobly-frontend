@@ -70,7 +70,7 @@ function SignupForm() {
   return (
     showLoading && errorMessage.length === 0 ? <div className="loading-message" ><b>Thanks for making an account... Please wait while we load all companies</b></div> :
     <div className="Login-container">
-      {errorMessage.length > 0 && <div className="alert alert-danger"><Alert errors={errorMessage} /></div>}
+      {errorMessage.length > 0 && <div className="alert alert-danger"><Alert type="danger" message={errorMessage} /></div>}
       <br />
       <br />
       <form className="signUpForm" onSubmit={handleSubmitSignUp}>
