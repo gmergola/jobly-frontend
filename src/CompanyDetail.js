@@ -5,14 +5,12 @@ import JobCard from './JobCard';
 import LoadingSpinner from './LoadingSpinner';
 import './CompanyDetail.css';
 
+/**CompanyDetail: Shows a company's name, description, and jobs available */
 function CompanyDetail() {
   const [company, setCompany] = useState({});
   let { name } = useParams();
   const [isLoading, setIsLoading] = useState(true);
 
-  // make api call to get a company
-  // handle error if call went wrong
-  // set isLoading state back to false
   useEffect(() => {
     async function getCompany() {
       try {
@@ -27,8 +25,6 @@ function CompanyDetail() {
     getCompany();
   }, [setCompany, name]);
 
-
-  // If isLoading state is false render jobcard, otherwise show loading spinner
   return (
     isLoading ? <LoadingSpinner /> :
     <div>

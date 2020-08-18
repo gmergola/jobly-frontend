@@ -26,7 +26,7 @@ function JobList() {
     getJobs();
   }, [setJobs]);
 
-  //runs on search bar if search bar is used, passed to search bar component in props
+  /*jobListSearch: runs on search bar if search bar is used, passed to search bar component in props*/
   function jobListSearch(filteredJobs) {
     setJobs(filteredJobs);
   }

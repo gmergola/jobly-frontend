@@ -17,6 +17,7 @@ function Routes() {
   const [token, setToken] = useState("");
   const [currentUser, setCurrentUser] = useState({});
 
+  //get and assign the current user
   useEffect(function getUser() {
     async function fetchCurrentUser() {
       try {

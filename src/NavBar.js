@@ -20,7 +20,6 @@ function NavBar() {
     window.localStorage.clear();
     setToken("");
     setCurrentUser({});
-    console.log("localStorage is:", localStorage);
     history.push('/');
   }
 
@@ -38,8 +37,7 @@ function NavBar() {
         </div>
       </div>
     </nav>
-  )
-  // navbar-brand
+  );
 }
 
 

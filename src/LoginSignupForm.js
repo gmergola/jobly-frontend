@@ -9,19 +9,17 @@ function LoginSignupForm() {
 
   return (
       <div className="Login-container">
-        {!window.localStorage.getItem("token") ?
+        {!window.localStorage.getItem("token") &&
           <div>
             <button className="login-signup-btn btn btn-primary" onClick={() => setFormToShow('login')}>Login</button>
             <br />
             <button className="login-signup-btn btn btn-secondary" onClick={() => setFormToShow('signup')}>Register</button>
-          </div>
-          :
-          null}
+          </div>}
         <br />
         <br />
-        {formToShow === 'login' ? <LoginForm /> : null}
+        {formToShow === 'login' && <LoginForm /> }
 
-        {formToShow === 'signup' ? <SignupForm /> : null}
+        {formToShow === 'signup' && <SignupForm /> }
 
       </div>
   );
