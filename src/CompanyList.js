@@ -18,7 +18,7 @@ function CompanyList() {
         setCompanies(resp);
       } catch (err) {
         console.error('server failed', err);
-      }finally{
+      } finally {
         setIsLoading(false);
       }
     }
@@ -27,25 +27,27 @@ function CompanyList() {
   }, [setCompanies]);
 
 
-  function companyListSearch(filteredCompanies){
+  function companyListSearch(filteredCompanies) {
     setCompanies(filteredCompanies);
   }
 
   return (
-    isLoading ? <LoadingSpinner /> :
     <div className="companies-container">
-      <SearchBar whichSearch='companies' searchCompanies={companyListSearch}/>
-      <img className="CompanyList-j" src={j} alt="j"/>
-      <div className="CompanyList-card">
-        {companies.map(({ name, logo_url, description, handle }) =>
-          <CompanyCard
-            key={handle}
-            handle={handle}
-            name={name}
-            logoUrl={logo_url}
-            description={description}
-          />)}
-      </div>
+      {isLoading ? <LoadingSpinner /> :
+        <>
+          <SearchBar whichSearch='companies' searchCompanies={companyListSearch} />
+          <img className="CompanyList-j" src={j} alt="j" />
+          <div className="CompanyList-card">
+            {companies.map(({ name, logo_url, description, handle }) =>
+              <CompanyCard
+                key={handle}
+                handle={handle}
+                name={name}
+                logoUrl={logo_url}
+                description={description}
+              />)}
+          </div>
+        </>}
     </div>
   )
 }

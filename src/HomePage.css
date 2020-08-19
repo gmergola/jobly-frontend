@@ -1,7 +1,6 @@
 .Home-container {
-  background-position: top;
   height: 100vh;
-  padding: 50px;
+  padding-top: 80px;
 }
 
 .Home-title {

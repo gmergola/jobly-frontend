@@ -2,15 +2,5 @@
   font-family: sans-serif;
   text-align: center;
   background-color: rgb(213, 224, 235);
-  border-radius: 50px;
-  margin-right: 100px;
-  margin-left: 100px;
-  margin-top: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-  .App {
-    margin-right: 25px;
-    margin-left: 25px;
-  }
-}

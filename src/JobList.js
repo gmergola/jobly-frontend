@@ -19,7 +19,7 @@ function JobList() {
         setJobs(resp);
       } catch (err) {
         console.error(err);
-      }finally {
+      } finally {
         setIsLoading(false);
       }
     }
@@ -32,19 +32,21 @@ function JobList() {
   }
 
   return (
-    isLoading ? <LoadingSpinner /> :
     <div className="jobs-container">
-      <SearchBar whichSearch='jobs' searchJobs={jobListSearch} />
-      <img className="JobList-j" src={j} alt="j"/>
-      <div className="JobList-card">
-        {jobs.map(({ title, salary, equity, id }) =>
-          <JobCard
-            key={id}
-            title={title}
-            salary={salary}
-            equity={equity}
-          />)}
-      </div>
+      {isLoading ? <LoadingSpinner /> :
+        <>
+          <SearchBar whichSearch='jobs' searchJobs={jobListSearch} />
+          <img className="JobList-j" src={j} alt="j" />
+          <div className="JobList-card">
+            {jobs.map(({ title, salary, equity, id }) =>
+              <JobCard
+                key={id}
+                title={title}
+                salary={salary}
+                equity={equity}
+              />)}
+          </div>
+        </>}
 
     </div>
   );

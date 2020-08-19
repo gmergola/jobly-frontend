@@ -25,16 +25,14 @@ function NavBar() {
 
   // currentUser?.username ? "" : " disabled" authenticates which navbar to render based on token state
   return (
-    <nav className="navbar navbar-expand">
-      <NavLink className="navbar-jobly" exact to="/"><b><img className="NavBar-j" src={j} alt="j"></img>obly</b></NavLink>
-      <div>
-        <div className="navbar-nav">
-          <NavLink className={`nav-item nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/companies"><b>Companies</b></NavLink>
-          <NavLink className={`nav-item nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/jobs"><b>Jobs</b></NavLink>
-          <NavLink className={`nav-item nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/profile"><b>Profile</b></NavLink>
-          <NavLink className={`nav-item nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/logout" onClick={handleLogout} ><b>Log out</b></NavLink>
-          <NavLink className={`nav-item nav-link${currentUser?.username ? " disabled" : ""}`} exact to="/login"><b>Log In • Sign Up</b></NavLink>
-        </div>
+    <nav className="navbar fixed-top bg-light">
+      <div className="container">
+        <NavLink className="navbar-jobly" exact to="/"><b><img className="NavBar-j" src={j} alt="j"></img>obly</b></NavLink>
+        <NavLink className={`navbar-links nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/companies"><b>Companies</b></NavLink>
+        <NavLink className={`navbar-links nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/jobs"><b>Jobs</b></NavLink>
+        <NavLink className={`navbar-links nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/profile"><b>Profile</b></NavLink>
+        <NavLink className={`navbar-links nav-link${currentUser?.username ? "" : " disabled"}`} exact to="/logout" onClick={handleLogout} ><b>Log out</b></NavLink>
+        <NavLink className={`navbar-links nav-link${currentUser?.username ? " disabled" : ""}`} exact to="/login"><b>Log In • Sign Up</b></NavLink>
       </div>
     </nav>
   );

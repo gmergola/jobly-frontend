@@ -1,3 +1,7 @@
+.CompanyDetail-container{
+  padding-top: 80px;
+}
+
 .CompanyDetail-title, .CompanyDetail-description {
   color: rgb(75, 86, 139);
 }

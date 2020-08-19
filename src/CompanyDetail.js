@@ -26,17 +26,19 @@ function CompanyDetail() {
   }, [setCompany, name]);
 
   return (
-    isLoading ? <LoadingSpinner /> :
-    <div>
-      <h3 className="CompanyDetail-title">{company.name}</h3>
-      <div className="CompanyDetail-description"><b>{company.description}</b></div>
-      <div>{company.jobs.map(job => (
-          <JobCard
-            key={job.id}
-            title={job.title}
-            salary={job.salary}
-            equity={job.equity} />
-      ))}</div>
+    <div className="CompanyDetail-container">
+      {isLoading ? <LoadingSpinner /> :
+        <>
+          <h3 className="CompanyDetail-title">{company.name}</h3>
+          <div className="CompanyDetail-description"><b>{company.description}</b></div>
+          <div>{company.jobs.map(job => (
+            <JobCard
+              key={job.id}
+              title={job.title}
+              salary={job.salary}
+              equity={job.equity} />
+          ))}</div>
+        </>}
     </div>
   );
 }
