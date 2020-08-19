@@ -1,6 +1,7 @@
 .Login-container {
   text-align: center;
   height: 100vh;
+  padding-top: 80px;
 }
 
 .login-signup-btn {
